@@ -1,0 +1,26 @@
+create table profiles
+(
+    id integer not null primary key autoincrement ,
+    email text unique,
+    name text not null,
+    password text not null,
+    balanace integer
+);
+
+create table product
+(
+    id integer not null primary key autoincrement,
+    name text not null,
+    description text,
+    image text,
+    price int,
+    availability int
+);
+
+create table basket
+(
+    profile_id integer,
+    product_id integer,
+    foreign key(profile_id) references profiles(id),
+    foreign key(product_id) references product(id)
+);

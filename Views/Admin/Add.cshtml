@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Добавление товара";
+}
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Администрация</h1>
+               
+            </div>
+        </div>
+    </div>
+</section>
+<a asp-action="Create">Добавить товар</a>
+<table class="table">
+    <tr><td>ID</td><td>Имя</td><td>Описание</td><td>Цена</td><td>Наличие</td></tr>
+
+    @foreach (var item in ViewBag.allproduct)
+    {
+        <tr><td>@item.Id</td><td>@item.Name</td><td>@item.Description</td><td>@item.Price</td><td>@item.Availability</td></tr>
+    }
+</table>

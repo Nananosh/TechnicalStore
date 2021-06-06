@@ -1,0 +1,28 @@
+﻿@using TechnicalStore.DataBaseConnection.Factory
+@using TechnicalStore.DataBaseConnection
+@using TechnicalStore.DataBaseConnection.db.connections
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (User.Identity.IsAuthenticated)
+{
+
+    <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Выйти(@User.Claims.ElementAt(2).Value)</a>
+    </li>
+    <li class="nav-item">
+        <div class="total">
+        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Order">@Factory.GetProfileBalanace(DatabaseConnection.GetProfileBalanace(Convert.ToInt32(User.Claims.ElementAt(0).Value))).ToString("c")</a>
+
+</div>
+        </li>
+    
+
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Войти</a>
+    </li>
+}

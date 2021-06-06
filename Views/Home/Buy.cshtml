@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Покупка товара";
+}
+<div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2>Checkout</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="single_product_details_area d-flex align-items-center">
+
+    <!-- Single Product Thumb -->
+    <div class="single_product_thumb clearfix">
+        <div class="product_thumbnail_slides owl-carousel">
+            <img src=@ViewBag.Obj.Image alt="">
+            <img src=@ViewBag.Obj.Image alt="">
+            <img src=@ViewBag.Obj.Image alt="">
+        </div>
+    </div>
+
+    <!-- Single Product Description -->
+    <div class="single_product_desc clearfix">
+        <span></span>
+        <a href="cart.html">
+            <h2>@ViewBag.Obj.Name</h2>
+        </a>
+        <p class="product-price">@ViewBag.Obj.Price.ToString("c")</p>
+        <p class="product-desc">@ViewBag.Obj.Description</p>
+        <!-- Select Box -->
+        <a>
+            Наличие: @if (@ViewBag.Obj.Availability == 1)
+            {<font color="green" size="3">Есть в наличии</font>}
+            else
+            {<font color="red" size="3">Продано</font>}
+        </a>
+        <!-- Form -->
+        @if (User.Identity.IsAuthenticated)
+        {
+            @if (@ViewBag.Obj.Availability == 1)
+            {<form method="post" asp-action="Buy" asp-controller="Home">
+
+                    <input type="hidden" value="@User.Claims.ElementAt(0).Value" name="Id" />
+                    <input type="hidden" value="@ViewBag.Obj.Id" name="Tid" />
+
+                    <!-- Cart & Favourite Box -->
+                    <div class="cart-fav-box d-flex align-items-center">
+                        <!-- Cart -->
+                        <button type="submit" class="btn essence-btn">Добавить</button>
+                        <!-- Favourite -->
+
+                    </div>
+
+                </form>
+            }
+            else
+            { <div class="cart-fav-box d-flex align-items-center">
+    <a class="btn essence-btn">Нет в наличии</a>
+    </div>
+    }
+    }
+    else
+
+
+
+    {
+
+
+
+
+    }
+</div>
+</section>

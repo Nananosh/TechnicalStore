@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+<div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2>Заказ</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div  class="checkout_area section-padding-80">
+    <div class="container">
+        
+            <div alight="center" class="col-12 col-md-6 col-lg-5 ml-lg-auto">
+                <div class="order-details-confirmation">
+
+                    <div class="cart-page-heading">
+                        <h5>Чек</h5>
+                        <p>Подробности</p>
+                    </div>
+
+                    <ul class="order-details-form mb-4">
+                        <li><span>Продукты:</span> <span></span></li>
+                        @foreach (var item in @ViewBag.BasketUser)
+                        {
+                            <li><span>@item.Name</span> <span>@item.Price.ToString("c")</span></li>
+                        }
+                       
+                            <li><span>Общая цена</span> <span>@ViewBag.FullPrice.ToString("c")</span></li>
+                            <li><span>Остаток на счету</span> <span>@ViewBag.Balance.ToString("c")</span></li>
+                           
+                        </ul>
+
+                    
+
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn essence-btn">На главную</a>
+                </div>
+            </div>
+        
+    </div>
+</div>

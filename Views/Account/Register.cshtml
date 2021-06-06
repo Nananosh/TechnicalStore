@@ -1,0 +1,59 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var returnUrl = ViewData["ReturnUrl"] as string;
+    var error = TempData["Error"] as string;
+}
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Регистрация</h1>
+            </div>
+        </div>
+    </div>
+</section>
+@if (!string.IsNullOrEmpty(error))
+{
+    <h2 class="alert-danger" style="padding:20px;">@error</h2>
+}
+
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                            <div class="login_form_inner">
+                                <h3>Заполните поля для регистрации</h3>
+                                <form action="Register" method="post" class="row login_form" id="contactForm" novalidate="novalidate">
+                                    <input type="hidden" name="Balance" value="0"/>
+                                    <div class="col-md-12 form-group">
+                                        <input type="text" class="form-control" id="name" name="Name" placeholder="Ваше имя" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваше имя'">
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <input type="email" class="form-control" id="email" name="Email" placeholder="Ваш email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваш email'">
+                                    </div>
+                                    <div class=" col-md-12 form-group">
+                                        <input type="password" class="form-control" id="password" name="Password" placeholder="Ваш пароль" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваш пароль'">
+                                    </div>
+                                               
+                                    <div class="col-md-12 form-group">
+                                        <button type="submit" value="submit" class="btn essence-btn" data-toggle="modal" data-target="#my-modal">Зарегистрироваться</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="~/img/login.jpg" alt="">
+                    <div class="hover">
+                        <h4>Регистрация</h4>
+                        <p>Нажимая на кнопку Зарегистрироваться,</p>
+                        <p>Вы соглашаетесь с правилами сайта</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </section>

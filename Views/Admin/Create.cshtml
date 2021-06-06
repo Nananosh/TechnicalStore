@@ -1,0 +1,35 @@
+﻿@model TechnicalStore.Models.Product
+@{
+    ViewBag.Title = "Добавление товара";
+}
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Администрация</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<form method="post" asp-action="Create" asp-controller="Admin">
+    
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Имя</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Описание</label>
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" class="control-label">Ссылка на картинку</label>
+        <input type="text" asp-for="Image" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class="control-label">Цена</label>
+        <input type="number" asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>
